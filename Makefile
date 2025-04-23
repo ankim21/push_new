@@ -5,6 +5,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SRCS :=    algo1.c \
+			algo2.c \
+			algo3.c \
 			helper.c \
 			parsing1.c \
 			parsing2.c \

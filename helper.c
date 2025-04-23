@@ -6,7 +6,7 @@
 /*   By: ankim <ankim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 11:35:42 by ankim             #+#    #+#             */
-/*   Updated: 2025/04/22 19:30:05 by ankim            ###   ########.fr       */
+/*   Updated: 2025/04/23 18:24:30 by ankim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,30 @@ t_node *find_max (t_node *stack)
         tmp = tmp->next;
     }
     return (max_node);
+}
+
+t_node *find_min(t_node *stack)
+{
+    long    min; 
+    t_node *min_node;
+    t_node *tmp;
+
+    if (!stack)
+        return(NULL);
+    tmp = stack;
+    min = LONG_MAX;
+    while (1)
+    {
+        if (stack->data < min)
+        {
+            min = stack->data;
+            min_node = stack;
+        }
+        stack = stack->next;
+        if (stack == tmp)
+            break ;
+    }
+    return(min_node);
 }
 
 void ft_final_check(t_node *stack_a)

@@ -6,7 +6,7 @@
 /*   By: ankim <ankim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:19:30 by ankim             #+#    #+#             */
-/*   Updated: 2025/04/20 13:31:05 by ankim            ###   ########.fr       */
+/*   Updated: 2025/04/23 10:53:01 by ankim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,10 @@ void rotate_b (t_node **stack_b)
 	ft_printf("rb\n");
 }
 
-void rr (t_node **stack_a, t_node **stack_b, t_node *cheapest)
+void rr (t_node **stack_a, t_node **stack_b)
 {
-	while (*stack_b != cheapest->target_node && *stack_a != cheapest)
-	{
-		rotate_a(stack_a);
-		rotate_b(stack_b);
-	}
+	rotate_a(stack_a);
+	rotate_b(stack_b);
 	refresh_positions(*stack_a);
 	refresh_positions(*stack_b);
 	ft_printf("rr\n");
