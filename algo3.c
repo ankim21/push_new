@@ -6,7 +6,7 @@
 /*   By: ankim <ankim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 12:29:16 by ankim             #+#    #+#             */
-/*   Updated: 2025/04/23 22:07:41 by ankim            ###   ########.fr       */
+/*   Updated: 2025/04/24 18:55:07 by ankim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ void	sort_me_easy (t_node **stack_a, t_node **stack_b)
 		return ;
 	if (stack_size(*stack_a) <= 3)
 		small_sort(stack_a);
-	else if (stack_size(*stack_a) >= 4 && stack_size(*stack_a) < 6)
-		big_small_sort(stack_a, stack_b);
-	else if (stack_size(*stack_a) >= 6 && stack_size(*stack_a) <= 10)
+	else if (stack_size(*stack_a) >= 4 && stack_size(*stack_a) <= 10)
 		bigger_small_sort(stack_a, stack_b);
 	else
 	{

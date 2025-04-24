@@ -6,7 +6,7 @@
 /*   By: ankim <ankim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:32:14 by ankim             #+#    #+#             */
-/*   Updated: 2025/04/23 22:30:54 by ankim            ###   ########.fr       */
+/*   Updated: 2025/04/24 10:39:52 by ankim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,12 @@ int		calculate_delta (t_node *stack);
 void	refresh_positions(t_node *stack);
 void	push_a_to_b (t_node **stack_a, t_node **stack_b);
 void	push_b_to_a (t_node **stack_a, t_node **stack_b, int index_total);
-void	push_btwo_to_a(t_node **stack_a, t_node **stack_b);
 void	small_sort(t_node **stack_a);
-void	big_small_sort(t_node **stack_a, t_node **stack_b);
+// void	big_small_sort(t_node **stack_a, t_node **stack_b);
 void	bigger_small_sort(t_node **stack_a, t_node **stack_b);
 void	sort_me_easy(t_node **stack_a, t_node **stack_b);
 void 	min_on_top(t_node *stack_a);
-void	prep_b(t_node *stack_b);
+void	prep_b(t_node **stack_a, t_node **stack_b, int size_b);
 t_node *find_min(t_node *stack);
 
 

@@ -6,7 +6,7 @@
 /*   By: ankim <ankim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:51:23 by ankim             #+#    #+#             */
-/*   Updated: 2025/04/23 22:22:33 by ankim            ###   ########.fr       */
+/*   Updated: 2025/04/24 20:18:25 by ankim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ void		assign_index (t_node *stack_a)
 	return;
 }
 
+
 int		calculate_delta (t_node *stack)
 {
 	int	delta;
 	int	size; 
 	
 	size = stack_size(stack);
-	if (size > 20)
+	if (size > 30)
 		delta = (stack_size(stack))/20 + 7;
 	else
 		delta = 2;
@@ -61,7 +62,7 @@ void	push_a_to_b (t_node **stack_a, t_node **stack_b)
 
 	threshold = 1;
 	delta = calculate_delta(*stack_a);
-	current = *stack_a; 
+	current = (*stack_a)->prev; 
 	while (*stack_a)
 	{
 		current = *stack_a;
@@ -95,45 +96,11 @@ void	push_b_to_a (t_node **stack_a, t_node **stack_b, int index_total)
 				if (!(*stack_b)->prev->above_mid)
 					push_a(stack_a, stack_b);
 			}
-			if (index_total == 2)
-			{
-				push_btwo_to_a(stack_a, stack_b);
-				return;				
-			}
 			index_total--;
 		}
 		*stack_b = (*stack_b)->next ;
 	}
 	return ;
-}
-
-void	push_btwo_to_a(t_node **stack_a, t_node **stack_b)
-{
-	int	index_total;
-
-	index_total = stack_size(*stack_b);
-	if (index_total == 2)
-	{
-		if ((*stack_b)->index > (*stack_b)->next->index)
-			{
-				push_a(stack_a, stack_b);
-				push_a(stack_a, stack_b);
-				return ;
-			}
-	}
-	else
-	{
-		while (index_total > 1)
-		{
-			reverse_rotate_b(stack_b);
-			refresh_positions(*stack_b);
-			if ((*stack_b)->above_mid)
-			{
-				push_a(stack_a, stack_b);
-				index_total--;
-			}
-		}
-	}
 }
 
 void	refresh_positions(t_node *stack)
